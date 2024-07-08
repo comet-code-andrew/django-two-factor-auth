@@ -10,6 +10,8 @@ from .views import (
     ExampleSecretView, HomeView, RegistrationCompleteView, RegistrationView,
 )
 
+from .api import HomeAPIView, LoginStepOneAPIView, LoginStepTwoAPIView, SecretAPIView
+
 urlpatterns = [
     path(
         '',
@@ -40,6 +42,12 @@ urlpatterns = [
     path('', include(tf_twilio_urls)),
     path('', include('user_sessions.urls', 'user_sessions')),
     path('admin/', admin.site.urls),
+
+    path('api/home', HomeAPIView.as_view(), name='home_api'),
+    path('api/login-step-one', LoginStepOneAPIView.as_view(), name='login_step_one'),
+    path('api/login-step-two', LoginStepTwoAPIView.as_view(), name='login_step_two'),
+    path('api/secret', SecretAPIView.as_view(), name='secret')
+
 ]
 
 if settings.DEBUG:

@@ -69,7 +69,9 @@ INSTALLED_APPS = [
     'example',
 
     'debug_toolbar',
-    'bootstrapform'
+    'bootstrapform',
+    
+    'rest_framework'
 ]
 
 

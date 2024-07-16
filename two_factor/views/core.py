@@ -449,6 +449,7 @@ class SetupView(RedirectURLMixin, IdempotentSessionWizardView):
         ('method', MethodForm),
         # Other forms are dynamically added in get_form_list()
     )
+    print("helloo man am I working???")
 
     # Copied from django.contrib.auth.views.LoginView (Branch: stable/1.11.x)
     # https://github.com/django/django/blob/58df8aa40fe88f753ba79e091a52f236246260b3/django/contrib/auth/views.py#L63

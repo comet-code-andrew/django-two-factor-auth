@@ -1,4 +1,4 @@
-import os
+import os, sys
 
 DEBUG = True
 
@@ -68,9 +68,14 @@ INSTALLED_APPS = [
     'two_factor.plugins.email',
     'example',
 
-    'debug_toolbar',
-    'bootstrapform'
+    # 'debug_toolbar',
+    'bootstrapform',
+    
+    'rest_framework'
 ]
+
+if 'test' not in sys.argv:
+    INSTALLED_APPS += ['debug_toolbar']
 
 
 LOGOUT_REDIRECT_URL = 'home'
@@ -92,6 +97,10 @@ LOGGING = {
         'two_factor': {
             'handlers': ['console'],
             'level': 'INFO',
+        },
+        'two_factor_api': {
+            'handlers': ['console'],
+            'level': 'INFO'
         }
     }
 }

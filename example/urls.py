@@ -10,7 +10,10 @@ from .views import (
     ExampleSecretView, HomeView, RegistrationCompleteView, RegistrationView,
 )
 
-from .api import HomeAPIView, LoginStepOneAPIView, LoginStepTwoAPIView, SecretAPIView
+# from .api import HomeAPIView, SecretAPIView, InitiateEmailSetupView, \
+#     GenerateTokenView, ValidateTokenView, InitialLoginView, VerifyOTPView, GenerateOTPView
+
+from .api import EmailSetupStepOne, EmailSetupStepTwo
 
 urlpatterns = [
     path(
@@ -43,10 +46,13 @@ urlpatterns = [
     path('', include('user_sessions.urls', 'user_sessions')),
     path('admin/', admin.site.urls),
 
-    path('api/home', HomeAPIView.as_view(), name='home_api'),
-    path('api/login-step-one', LoginStepOneAPIView.as_view(), name='login_step_one'),
-    path('api/login-step-two', LoginStepTwoAPIView.as_view(), name='login_step_two'),
-    path('api/secret', SecretAPIView.as_view(), name='secret')
+    path('email-2fa/setup-step1/', EmailSetupStepOne.as_view(), name='email_setup_step_one'),
+    path('email-2fa/setup-step2/', EmailSetupStepTwo.as_view(), name='email_setup_step_two'),
+
+    # path('email-2fa/initial-login/', InitialLoginView.as_view(), name='initial_login_view'),
+    # path('email-2fa/initiate-email-setup/', InitiateEmailSetupView.as_view(), name='initiate_email_setup'),
+    # path('email-2fa/generate-otp/', GenerateOTPView.as_view(), name='generate_otp_view'),
+    # path('email-2fa/verify-otp/', VerifyOTPView.as_view(), name='verify_otp_view'),
 
 ]
 

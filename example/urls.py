@@ -13,7 +13,8 @@ from .views import (
 # from .api import HomeAPIView, SecretAPIView, InitiateEmailSetupView, \
 #     GenerateTokenView, ValidateTokenView, InitialLoginView, VerifyOTPView, GenerateOTPView
 
-from .api import EmailSetupStepOne, EmailSetupStepTwo
+from .api import EmailSetupStepOne, EmailSetupStepTwo, TOTPSetupStepOne, TOTPSetupStepTwo, EmailCreateOTP, \
+    EmailVerifyOTP, TOTPVerifyOTP
 
 urlpatterns = [
     path(
@@ -48,11 +49,12 @@ urlpatterns = [
 
     path('email-2fa/setup-step1/', EmailSetupStepOne.as_view(), name='email_setup_step_one'),
     path('email-2fa/setup-step2/', EmailSetupStepTwo.as_view(), name='email_setup_step_two'),
+    path('email-2fa/create-otp/', EmailCreateOTP.as_view(), name='email_create_otp'),
+    path('email-2fa/verify-otp/', EmailVerifyOTP.as_view(), name='email_verify_otp'),
 
-    # path('email-2fa/initial-login/', InitialLoginView.as_view(), name='initial_login_view'),
-    # path('email-2fa/initiate-email-setup/', InitiateEmailSetupView.as_view(), name='initiate_email_setup'),
-    # path('email-2fa/generate-otp/', GenerateOTPView.as_view(), name='generate_otp_view'),
-    # path('email-2fa/verify-otp/', VerifyOTPView.as_view(), name='verify_otp_view'),
+    path('totp-2fa/setup-step1/', TOTPSetupStepOne.as_view(), name='totp_setup_step_one'),
+    path('totp-2fa/setup-step2/', TOTPSetupStepTwo.as_view(), name='totp_setup_step_two'),
+    path('totp-2fa/verify-otp/', TOTPVerifyOTP.as_view(), name='totp_verify_otp'),
 
 ]
 

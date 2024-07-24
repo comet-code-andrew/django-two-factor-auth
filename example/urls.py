@@ -10,9 +10,6 @@ from .views import (
     ExampleSecretView, HomeView, RegistrationCompleteView, RegistrationView,
 )
 
-# from .api import HomeAPIView, SecretAPIView, InitiateEmailSetupView, \
-#     GenerateTokenView, ValidateTokenView, InitialLoginView, VerifyOTPView, GenerateOTPView
-
 from .api import EmailSetupStepOne, EmailSetupStepTwo, TOTPSetupStepOne, TOTPSetupStepTwo, EmailCreateOTP, \
     EmailVerifyOTP, TOTPVerifyOTP
 
